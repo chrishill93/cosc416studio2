@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float force = 1f;
+    [SerializeField] private Transform ballAnchor;
     [SerializeField] private InputManager inputManager;
     private Rigidbody ballRB;
     private bool isBallLaunched;
@@ -11,15 +13,18 @@ public class Ball : MonoBehaviour
     void Start()
     {
         ballRB = GetComponent<Rigidbody>();
-
         inputManager.OnSpacePressed.AddListener(LaunchBall);
+        transform.parent = ballAnchor;
+        transform.localPosition = Vector3.zero;
+        ballRB.isKinematic = true;
     }
 
     void LaunchBall()
     {
-        if (isBallLaunched) return;
-        
+        if (isBallLaunched) return;     
         isBallLaunched = true;
+        transform.parent = null;
+        ballRB.isKinematic = false;
         ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
     }
 }
