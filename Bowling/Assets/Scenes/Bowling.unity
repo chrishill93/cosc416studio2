@@ -186,7 +186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  scoreText: {fileID: 0}
+  ball: {fileID: 1616474928}
+  pinCollection: {fileID: 6568995864063123533, guid: 0236304abd6c3e647bd65fdde6037982, type: 3}
+  pinAnchor: {fileID: 1105366030}
+  inputManager: {fileID: 21380977}
+  scoreText: {fileID: 1069826731}
 --- !u!1001 &220343437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1233,7 +1237,7 @@ Transform:
   m_GameObject: {fileID: 1105366029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30}
+  m_LocalPosition: {x: 0, y: 1, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
